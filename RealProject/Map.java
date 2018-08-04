@@ -60,6 +60,11 @@ public class Map {
       haulers.add(newHauler);
     }
   }
+
+  public void startWorking() {
+    System.out.println("Started Working");
+    
+  }
   /*
   private void lookForResources() {
     System.out.println("Looking for mines and depots");

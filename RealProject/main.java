@@ -15,7 +15,9 @@ public class main {
         System.out.println(ex);
       }
 
-      System.out.println("Map read from file: ");
+      System.out.println("Map read from file");
+      theMap.startWorking();
+      System.out.println("Started Working");
       // theMap.printMap();
       // theMap.startWorkers();
   }
