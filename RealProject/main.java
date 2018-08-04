@@ -8,12 +8,14 @@ public class main {
 
   public static void main(String[] args) {
       System.out.println("Hello there");
-      Map theMap = new Map(readFileContents("./maps/map_1.input"), worker_count);
-      System.out.println("Map read from file: " + theMap.getNumCols() + "x" + theMap.getNumRows());
+
+      Map theMap = FileParser.read('./map/map1_input');
+      System.out.println("Map read from file: ");
       theMap.printMap();
       // theMap.startWorkers();
   }
 
+/*
   public static ArrayList<String> readFileContents(String fileName) {
     String line = null;
     ArrayList<String> inputMap = new ArrayList<String>();
@@ -33,5 +35,6 @@ public class main {
 
     return inputMap;
   }
+*/
 
 }

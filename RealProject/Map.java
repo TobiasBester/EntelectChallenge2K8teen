@@ -14,7 +14,9 @@ public class Map {
   private int budget = 0;
   public ArrayList<Mine> mines = new ArrayList<Mine>();
   public ArrayList<Factory> factories = new ArrayList<Factory>();
-  public ArrayList<Worker> workers = new ArrayList<Worker>();
+  public ArrayList<Worker> miners = new ArrayList<Worker>();
+  public ArrayList<Worker> excavators = new ArrayList<Worker>();
+  public ArrayList<Worker> haulers = new ArrayList<Worker>();
 
   Map(int rows, int cols, int numMiners, int numExcs, int numHaulers, int numMines, int numFacs, int budget) {
     this.numRows = rows;
@@ -26,7 +28,7 @@ public class Map {
     this.numFactories = numFacs;
     this.budget = budget;
 
-    // createWorkers();
+    createWorkers();
     // lookForResources();
     // matchMinesWithDepots();
     // Object[] shortestDist = getShortestDist();
@@ -45,9 +47,17 @@ public class Map {
 
   private void createWorkers() {
     System.out.println("Creating Workers");
-    for (int i = 0; i < worker_count; i++) {
-      Worker newWorker = new Worker(numRows-1, 0, this);
-      workers.add(newWorker);
+    for (int i = 0; i < miner_count; i++) {
+      Worker newMiner = new Worker(0, 0, 1, 0, this);
+      miners.add(newMiner);
+    }
+    ]for (int i = 0; i < excavator_count; i++) {
+      Worker newExc = new Worker(0, 0, 3, 1, this);
+      excavators.add(newExc);
+    }
+    for (int i = 0; i < hauler_count; i++) {
+      Worker newHauler = new Worker(0, 0, 5, 2, this);
+      haulers.add(newHauler);
     }
   }
 
