@@ -9,7 +9,7 @@ public class main {
   public static void main(String[] args) {
       System.out.println("Hello there");
 
-      Map theMap = FileParser.read('./map/map1_input');
+      Map theMap = FileParser.read("./map/map1_input");
       System.out.println("Map read from file: ");
       theMap.printMap();
       // theMap.startWorkers();

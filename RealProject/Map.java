@@ -51,7 +51,7 @@ public class Map {
       Worker newMiner = new Worker(0, 0, 1, 0, this);
       miners.add(newMiner);
     }
-    ]for (int i = 0; i < excavator_count; i++) {
+    for (int i = 0; i < excavator_count; i++) {
       Worker newExc = new Worker(0, 0, 3, 1, this);
       excavators.add(newExc);
     }
