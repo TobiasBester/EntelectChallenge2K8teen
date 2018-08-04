@@ -47,6 +47,10 @@ public class Worker {
   }
 
   public void goToMine() {
+    if (theMap.mines.size() == 0) {
+      return;
+    }
+
     Mine currentMine = theMap.mines.get(0);
 
     xLoc = currentMine.getXloc();

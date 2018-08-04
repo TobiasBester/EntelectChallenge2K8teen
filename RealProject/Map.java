@@ -93,16 +93,18 @@ public class Map {
       }
     }
     System.out.println("Stopped Working");
-    printOutput();
+    System.out.print(printOutput());
   }
 
   public String printOutput() {
     String outString = "";
     for (Worker worker: workers) {
       outString += worker.getStringType() + "|";
-      for (Integer index: workers.history) {
+      for (Integer index: worker.history) {
         outString += index + ",";
       }
+      outString = outString.substring(0,outString.length()-1);
+      outString += "\n";
     }
     return outString;
   }
