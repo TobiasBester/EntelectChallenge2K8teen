@@ -68,26 +68,30 @@ public class Map {
 
   public void startWorking() {
     System.out.println("Started Working");
-    for (Worker worker: workers) {
-      if (worker.hasSpace()) {
-        System.out.println("Worker " + worker.getType() + " is heading to a mine");
-        worker.goToMine();
-      } else {
-        // worker.goToFactory();
-        for (String resource: worker.resourcesHeld) {
-          //GOTO FACTORY
-          String factory = resource.toUpperCase();
-          Factory goToFactory = null;
-          for (Factory nextFact: this.factories){
-            if(nextFact.getLetter().equals(factory)){
-              goToFactory = nextFact;
-              break;
+    for (int i = 0; i < 2; i++) {
+      for (Worker worker: workers) {
+        if (worker.hasSpace()) {
+          System.out.println("Worker " + worker.getType() + " is heading to a mine");
+          worker.goToMine();
+        } else {
+          for (String resource: worker.resourcesHeld) {
+            System.out.println("Worker " + worker.getType() + " is heading to a factory");
+            //GOTO FACTORY
+            String factory = resource;
+            Factory goToFactory = null;
+            for (Factory nextFact: this.factories){
+              if(nextFact.getLetter().equals(factory)){
+                goToFactory = nextFact;
+                break;
+              }
             }
+            System.out.println("Going to factory: " + goToFactory);
+            worker.goToFactory(goToFactory);
           }
-          worker.goToFactory(goToFactory);
         }
       }
     }
+
   }
   /*
   private void lookForResources() {

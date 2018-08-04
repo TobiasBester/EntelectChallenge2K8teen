@@ -89,7 +89,7 @@ public class Worker {
     this.xLoc = factory.getXloc();
     this.yLoc = factory.getYloc();
     this.currentLoad--;
-    this.resourcesHeld.remove(factory.getLetter().toUpperCase());
+    this.resourcesHeld.remove(factory.getLetter().toLowerCase());
   }
 
 }
