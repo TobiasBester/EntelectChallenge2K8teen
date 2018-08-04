@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.concurrent.Future;
 
 public class Map {
@@ -48,6 +49,7 @@ public class Map {
   }
 
   private void createWorkers() {
+    Collections.reverse(workers);
     int index = 0;
     // System.out.println("Creating Workers");
     for (int i = 0; i < miner_count; i++) {
@@ -100,7 +102,6 @@ public class Map {
             }
           }
         }
-
       }
 
       if (mineIsBest) {
@@ -145,20 +146,25 @@ public class Map {
         }*/
     }
     // System.out.println("Stopped Working");
-    System.out.print(printOutput());
+    // System.out.print(printOutput());
+    printOutput();
   }
 
-  public String printOutput() {
+  public void printOutput() {
     String outString = "";
     for (Worker worker: workers) {
+      outString = "";
       outString += worker.getStringType() + "|";
       for (Integer index: worker.history) {
         outString += index + ",";
       }
-      outString = outString.substring(0,outString.length()-1);
-      outString += "\n";
+
+      if (outString.charAt(outString.length()-1) == (',')) {
+        outString = outString.substring(0,outString.length()-1);
+      }
+
+      System.out.println(outString);
     }
-    return outString;
   }
 
   /*
