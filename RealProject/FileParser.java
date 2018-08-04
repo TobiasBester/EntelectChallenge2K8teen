@@ -61,8 +61,9 @@ public class FileParser {
                                           Integer.parseInt(tokensVal[3]));   // y
         }
 
-        
+        output.addMine(mine);
+        output.addFactory(factory);
 
-
+        return output;
     }
  }
