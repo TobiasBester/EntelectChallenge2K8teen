@@ -12,9 +12,9 @@ public class Map {
   private int numMines = 0;
   private int numFactories = 0;
   private int budget = 0;
-  // public ArrayList<Worker> workers = new ArrayList<Worker>();
-  // public ArrayList<Mine> mines = new ArrayList<Mine>();
-  // public ArrayList<Depot> depots = new ArrayList<Depot>();
+  public ArrayList<Mine> mines = new ArrayList<Mine>();
+  public ArrayList<Factory> factories = new ArrayList<Factory>();
+  public ArrayList<Worker> workers = new ArrayList<Worker>();
 
   Map(int rows, int cols, int numMiners, int numExcs, int numHaulers, int numMines, int numFacs, int budget) {
     this.numRows = rows;
@@ -33,6 +33,14 @@ public class Map {
     // System.out.println("The closest worker is: " + shortestDist[0]);
     // System.out.println("Is the thing a mine? " + shortestDist[2]);
     // System.out.println("The closest thing is: " + shortestDist[1]);
+  }
+
+  public void addMine(Mine mine) {
+    mines.add(mine);
+  }
+
+  public void addFactory(Factory factory) {
+    factories.add(factory);
   }
 
   private void createWorkers() {
@@ -130,29 +138,6 @@ public class Map {
     result = Math.sqrt( Math.pow( y2 - y1 , 2 )  - Math.pow( x2 - x1 , 2 )  );
     // System.out.println("Distance: " + result);
     return result;
-  }
-
-  public Character getMapCoord(int x, int y) {
-    return this.theMap[x][y];
-  }
-
-  public int getNumRows() {
-    return this.numRows;
-  }
-
-  public int getNumCols() {
-    return this.numCols;
-  }
-
-  public int getWorkerCount() {
-    return this.worker_count;
-  }
-
-  public void printMap() {
-    for (int i = 0; i < numRows; i++) {
-      String output = Arrays.toString(theMap[i]);
-      System.out.println(output);
-    }
   }
 
 }
