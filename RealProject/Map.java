@@ -60,7 +60,7 @@ public class Map {
       haulers.add(newHauler);
     }
   }
-
+  /*
   private void lookForResources() {
     System.out.println("Looking for mines and depots");
     for (int i = 0; i < this.numRows; i++) {
@@ -148,6 +148,6 @@ public class Map {
     result = Math.sqrt( Math.pow( y2 - y1 , 2 )  - Math.pow( x2 - x1 , 2 )  );
     // System.out.println("Distance: " + result);
     return result;
-  }
+  }*/
 
 }

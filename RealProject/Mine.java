@@ -16,7 +16,7 @@ public class Mine {
     this.numResources = numResources;
     this.theMap = theMap;
   }
-
+/*
   public void setDepot(Depot matchingDepot) {
     this.matchingDepot = matchingDepot;
   }
@@ -31,6 +31,6 @@ public class Mine {
 
   public Character getLetter() {
     return letter;
-  }
+  }*/
 
 }
