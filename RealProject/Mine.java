@@ -16,10 +16,15 @@ public class Mine {
     this.numResources = numResources;
     this.theMap = theMap;
   }
+  
 /*
   public void setDepot(Depot matchingDepot) {
     this.matchingDepot = matchingDepot;
   }
+
+  public Character getLetter() {
+    return letter;
+  }*/
 
   public int getXloc() {
     return xLoc;
@@ -28,9 +33,5 @@ public class Mine {
   public int getYloc() {
     return yLoc;
   }
-
-  public Character getLetter() {
-    return letter;
-  }*/
 
 }

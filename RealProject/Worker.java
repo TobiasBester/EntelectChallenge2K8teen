@@ -49,7 +49,7 @@ public class Worker {
       }
     }
     return closestMine;
-  }
+  }*/
 
   public int getXloc() {
     return xLoc;
@@ -57,6 +57,6 @@ public class Worker {
 
   public int getYloc() {
     return yLoc;
-  }*/
+  }
 
 }

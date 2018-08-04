@@ -63,7 +63,7 @@ public class Map {
 
   public void startWorking() {
     System.out.println("Started Working");
-    
+
   }
   /*
   private void lookForResources() {
@@ -145,7 +145,7 @@ public class Map {
     return result;
   }
 
-  public double getDistFromWorkerToDepot(Worker point1, Depot point2) {
+  public double getDistFromWorkerToFactory(Worker point1, Factory point2) {
     double result = 0.0;
     int x1 = point1.getXloc();
     int x2 = point2.getXloc();
