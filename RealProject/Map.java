@@ -48,19 +48,20 @@ public class Map {
   }
 
   private void createWorkers() {
+    int index = 0;
     System.out.println("Creating Workers");
     for (int i = 0; i < miner_count; i++) {
-      Worker newMiner = new Worker(0, 0, 1, 0, this);
+      Worker newMiner = new Worker(0, 0, 1, 0, index++, this);
       workers.add(newMiner);
       miners.add(newMiner);
     }
     for (int i = 0; i < excavator_count; i++) {
-      Worker newExc = new Worker(0, 0, 3, 1, this);
+      Worker newExc = new Worker(0, 0, 3, 1, index++, this);
       workers.add(newExc);
       excavators.add(newExc);
     }
     for (int i = 0; i < hauler_count; i++) {
-      Worker newHauler = new Worker(0, 0, 5, 2, this);
+      Worker newHauler = new Worker(0, 0, 5, 2, index++, this);
       workers.add(newHauler);
       haulers.add(newHauler);
     }
@@ -68,14 +69,14 @@ public class Map {
 
   public void startWorking() {
     System.out.println("Started Working");
-    for (int i = 0; i < 2; i++) {
+    while (mines.size() > 0) {
       for (Worker worker: workers) {
         if (worker.hasSpace()) {
-          System.out.println("Worker " + worker.getType() + " is heading to a mine");
+          System.out.println("Worker " + worker.getIndex() + " is heading to a mine");
           worker.goToMine();
         } else {
           for (String resource: worker.resourcesHeld) {
-            System.out.println("Worker " + worker.getType() + " is heading to a factory");
+            System.out.println("Worker " + worker.getIndex() + " is heading to a factory");
             //GOTO FACTORY
             String factory = resource;
             Factory goToFactory = null;
@@ -85,7 +86,7 @@ public class Map {
                 break;
               }
             }
-            System.out.println("Going to factory: " + goToFactory);
+            System.out.println("Going to factory: " + goToFactory.getIndex());
             worker.goToFactory(goToFactory);
           }
         }

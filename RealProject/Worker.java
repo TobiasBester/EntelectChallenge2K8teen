@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Worker {
 
+  private int index = 0;
   private int xLoc = 0;
   private int yLoc = 0;
   private int carryLoad = 0;
@@ -14,16 +15,21 @@ public class Worker {
   public int currentLoad = 0;
   public ArrayList<String> resourcesHeld = new ArrayList<String>();
 
-  Worker(int x, int y,int carryLoad,int type, Map theMap) {
+  Worker(int x, int y,int carryLoad,int type, int index, Map theMap) {
     this.xLoc = x;
     this.yLoc = y;
     this.theMap = theMap;
     this.carryLoad = carryLoad;
     this.type = type;
+    this.index = index;
   }
 
   public int getType(){
    return type;
+  }
+
+  public int getIndex() {
+    return index;
   }
 
   public int getCarryLoad(){
