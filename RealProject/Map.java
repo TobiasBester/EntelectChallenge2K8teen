@@ -70,6 +70,7 @@ public class Map {
     System.out.println("Started Working");
     for (Worker worker: workers) {
       if (worker.hasSpace()) {
+        System.out.println("Worker " + worker.getType() + " is heading to a mine");
         worker.goToMine();
       } else {
         // worker.goToFactory();

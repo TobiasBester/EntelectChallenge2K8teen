@@ -42,6 +42,8 @@ public class Worker {
   public void goToMine() {
     Mine currentMine = theMap.mines.get(0);
 
+    xLoc = currentMine.getXloc();
+    yLoc = currentMine.getYloc();
     currentLoad++;
     theMap.increaseCost(theMap.getDistFromWorkerToMine(this, currentMine));
     pickUpResource(currentMine.getLetter());
