@@ -64,6 +64,7 @@ public class FileParser {
         output.addMine(mine);
         output.addFactory(factory);
 
+        scanner.close();
         return output;
     }
  }
