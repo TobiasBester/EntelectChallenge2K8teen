@@ -39,19 +39,6 @@ public class Map {
     // System.out.println("The closest thing is: " + shortestDist[1]);
   }
 
-  public Boolean validMove(double numCost){
-   double tmp =0;
-   tmp = moneyUsed;
-   Boolean flag = true;
-
-   if((tmp + numCost)> budget)
-   {
-      return false;
-   }
-   else
-      return true;
-
-  }
   public void addMine(Mine mine) {
     mines.add(mine);
   }
@@ -83,7 +70,7 @@ public class Map {
     System.out.println("Started Working");
     for (Worker worker: workers) {
       if (worker.hasSpace()) {
-        // worker.goToMine();
+        worker.goToMine();
       } else {
         // worker.goToFactory();
       }
@@ -181,7 +168,25 @@ public class Map {
   }
 
   public void increaseCost(double numCost) {
-    moneyUsed += numCost;
+    if (validMove(numCost)) {
+        moneyUsed += numCost;
+    } else {
+      System.out.println("NO MONEY BUDDY");
+    }
+  }
+
+  public Boolean validMove(double numCost){
+   double tmp =0;
+   tmp = moneyUsed;
+   Boolean flag = true;
+
+   if((tmp + numCost)> budget)
+   {
+      return false;
+   }
+   else
+      return true;
+
   }
 
 }

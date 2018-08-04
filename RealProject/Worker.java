@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Worker {
 
   private int xLoc = 0;
@@ -33,9 +35,18 @@ public class Worker {
    return carryLoad > currentLoad;
   }
 
-  public void pickUpResource(String letter) {
+  private void pickUpResource(String letter) {
     resourcesHeld.add(letter);
   }
+
+  public void goToMine() {
+    Mine currentMine = theMap.mines.get(0);
+
+    currentLoad++;
+    theMap.increaseCost(theMap.getDistFromWorkerToMine(this, currentMine));
+    pickUpResource(currentMine.getLetter());
+    currentMine.removeResources();
+  };
 
 /*
   public void calculateHeuristic() {
