@@ -8,7 +8,7 @@ public class main {
 
   public static void main(String[] args) {
       System.out.println("Hello there");
-      Map theMap = new Map(readFileContents("./map_1.input"), worker_count);
+      Map theMap = new Map(readFileContents("./maps/map_1.input"), worker_count);
       System.out.println("Map read from file: " + theMap.getNumCols() + "x" + theMap.getNumRows());
       theMap.printMap();
       // theMap.startWorkers();

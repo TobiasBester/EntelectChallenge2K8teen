@@ -3,24 +3,28 @@ import java.util.Arrays;
 import java.util.concurrent.Future;
 
 public class Map {
-  private Character[][] theMap;
   private int worker_count = 0;
+  private int miner_count = 0;
+  private int excavator_count = 0;
+  private int hauler_count = 0;
   private int numRows = 0;
   private int numCols = 0;
-  public ArrayList<Worker> workers = new ArrayList<Worker>();
-  public ArrayList<Mine> mines = new ArrayList<Mine>();
-  public ArrayList<Depot> depots = new ArrayList<Depot>();
+  private int numMines = 0;
+  private int numFactories = 0;
+  private int budget = 0;
+  // public ArrayList<Worker> workers = new ArrayList<Worker>();
+  // public ArrayList<Mine> mines = new ArrayList<Mine>();
+  // public ArrayList<Depot> depots = new ArrayList<Depot>();
 
-  Map(ArrayList<String> mapArray, int worker_count) {
-    this.numRows = mapArray.size();
-    this.numCols = mapArray.get(0).length();
-    theMap = new Character[this.numRows][this.numCols];
-    for (int i=0; i < this.numRows; i++) {
-      for (int j=0; j < this.numCols; j++) {
-        theMap[i][j] = mapArray.get(i).charAt(j);
-      }
-    }
-    this.worker_count = worker_count;
+  Map(int rows, int cols, int numMiners, int numExcs, int numHaulers, int numMines, int numFacs, int budget) {
+    this.numRows = rows;
+    this.numCols = cols;
+    this.miner_count = numMiners;
+    this.excavator_count = numExcs;
+    this.hauler_count = numHaulers;
+    this.numMines = numMines;
+    this.numFactories = numFacs;
+    this.budget = budget;
 
     createWorkers();
     lookForResources();
