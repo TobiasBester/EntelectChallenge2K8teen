@@ -1,5 +1,6 @@
 public class Factory {
-
+  
+  private int index =0;
   private int xLoc = 0;
   private int yLoc = 0;
   private Map theMap;
@@ -7,12 +8,13 @@ public class Factory {
   public boolean receivedResource = false;
   private Mine matchingMine = null;
 
-  Factory(Map theMap, int xLoc, int yLoc, String letter) {
+  Factory(int index, String letter ,int xLoc, int yLoc, Map theMap) {
     // System.out.println("Found a depot at " + xLoc + "," + yLoc);
     this.theMap = theMap;
     this.letter = String.toUpperCase(letter);
     this.xLoc = xLoc;
     this.yLoc = yLoc;
+    this.index = index;
   }
 
   public void setMine(Mine matchingMine) {
