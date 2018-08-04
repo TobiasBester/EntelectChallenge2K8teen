@@ -1,5 +1,5 @@
 public class Factory {
-  
+
   private int index =0;
   private int xLoc = 0;
   private int yLoc = 0;
@@ -27,6 +27,10 @@ public class Factory {
 
   public int getYloc() {
     return yLoc;
+  }
+
+  public int getIndex() {
+    return index;
   }
 
   public String getLetter() {

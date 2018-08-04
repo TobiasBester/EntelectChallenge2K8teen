@@ -12,8 +12,10 @@ public class Map {
   private int numMines = 0;
   private int numFactories = 0;
   private double budget = 0;
+  public double moneyUsed = 0;
   public ArrayList<Mine> mines = new ArrayList<Mine>();
   public ArrayList<Factory> factories = new ArrayList<Factory>();
+  public ArrayList<Worker> workers = new ArrayList<Worker>();
   public ArrayList<Worker> miners = new ArrayList<Worker>();
   public ArrayList<Worker> excavators = new ArrayList<Worker>();
   public ArrayList<Worker> haulers = new ArrayList<Worker>();
@@ -49,21 +51,30 @@ public class Map {
     System.out.println("Creating Workers");
     for (int i = 0; i < miner_count; i++) {
       Worker newMiner = new Worker(0, 0, 1, 0, this);
+      workers.add(newMiner);
       miners.add(newMiner);
     }
     for (int i = 0; i < excavator_count; i++) {
       Worker newExc = new Worker(0, 0, 3, 1, this);
+      workers.add(newExc);
       excavators.add(newExc);
     }
     for (int i = 0; i < hauler_count; i++) {
       Worker newHauler = new Worker(0, 0, 5, 2, this);
+      workers.add(newHauler);
       haulers.add(newHauler);
     }
   }
 
   public void startWorking() {
     System.out.println("Started Working");
-
+    for (Worker worker: workers) {
+      if (worker.hasSpace()) {
+        worker.goToMine();
+      } else {
+        worker.goToFactory();
+      }
+    }
   }
   /*
   private void lookForResources() {
@@ -154,6 +165,10 @@ public class Map {
     result = Math.abs(y2 - y1) + Math.abs(x2 - x1);
     // System.out.println("Distance: " + result);
     return result;
+  }
+
+  public void increaseCost(double numCost) {
+    moneyUsed += numCost;
   }
 
 }
