@@ -11,14 +11,14 @@ public class Map {
   private int numCols = 0;
   private int numMines = 0;
   private int numFactories = 0;
-  private int budget = 0;
+  private double budget = 0;
   public ArrayList<Mine> mines = new ArrayList<Mine>();
   public ArrayList<Factory> factories = new ArrayList<Factory>();
   public ArrayList<Worker> miners = new ArrayList<Worker>();
   public ArrayList<Worker> excavators = new ArrayList<Worker>();
   public ArrayList<Worker> haulers = new ArrayList<Worker>();
 
-  Map(int rows, int cols, int numMiners, int numExcs, int numHaulers, int numMines, int numFacs, int budget) {
+  Map(int rows, int cols, int numMiners, int numExcs, int numHaulers, int numMines, int numFacs, double budget) {
     this.numRows = rows;
     this.numCols = cols;
     this.miner_count = numMiners;

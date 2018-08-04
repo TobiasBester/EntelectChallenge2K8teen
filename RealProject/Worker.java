@@ -25,6 +25,7 @@ public class Worker {
     }
   }
 
+/*
   public void calculateHeuristic() {
     // The heuristic is the distance to mine if not carrying a resource
     // Else it is the distance to the depot
@@ -33,7 +34,7 @@ public class Worker {
       currentMine = getClosestMine();
       System.out.println("Current mine: " + currentMine.getLetter());
     } else {
-      
+
     }
   }
 
@@ -56,6 +57,6 @@ public class Worker {
 
   public int getYloc() {
     return yLoc;
-  }
+  }*/
 
 }

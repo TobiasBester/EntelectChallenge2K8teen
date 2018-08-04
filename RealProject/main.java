@@ -9,9 +9,14 @@ public class main {
   public static void main(String[] args) {
       System.out.println("Hello there");
 
-      Map theMap = FileParser.read("./map/map1_input");
+      try {
+          Map theMap = FileParser.read("./maps/map_1.input");
+      } catch (FileNotFoundException ex) {
+        System.out.println(ex);
+      }
+
       System.out.println("Map read from file: ");
-      theMap.printMap();
+      // theMap.printMap();
       // theMap.startWorkers();
   }
 

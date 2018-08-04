@@ -17,8 +17,8 @@ public class FileParser {
     //         } catch (ParseException e) {
     //             System.out.println("Error: Could not parse values");
     //         }
-            
-            
+
+
     //     }
     //     scanner.close();
 
@@ -42,27 +42,29 @@ public class FileParser {
                              Integer.parseInt(tokensVal[4]),    // H
                              Integer.parseInt(tokensVal[5]),    // MN
                              Integer.parseInt(tokensVal[6]),    // F
-                             Integer.parseInt(tokensVal[7]));   // Budget
+                             Double.parseDouble(tokensVal[7]));   // Budget
         int numMine = Integer.parseInt(tokensVal[5]);
         int numFact = Integer.parseInt(tokensVal[6]);
         for(int x = 0; x < numMine; x++) {
             tokensVal = scanner.nextLine().split(" ");
             Mine mine = new Mine(Integer.parseInt(tokensVal[0]),    // I
-                                 Integer.parseInt(tokensVal[1]),    // T
+                                 tokensVal[1],    // T
                                  Integer.parseInt(tokensVal[2]),    // x
                                  Integer.parseInt(tokensVal[3]),    // y
-                                 Integer.parseInt(tokensVal[4]));   // R
+                                 Integer.parseInt(tokensVal[4]),
+                                 output);   // R
+            output.addMine(mine);
         }
         for(int x = 0; x < numFact; x++) {
             tokensVal = scanner.nextLine().split(" ");
             Factory factory = new Factory(Integer.parseInt(tokensVal[0]),    // I
-                                          Integer.parseInt(tokensVal[1]),    // T
+                                          tokensVal[1],    // T
                                           Integer.parseInt(tokensVal[2]),    // x
-                                          Integer.parseInt(tokensVal[3]));   // y
+                                          Integer.parseInt(tokensVal[3]),
+                                          output);   // y
+            output.addFactory(factory);
         }
 
-        output.addMine(mine);
-        output.addFactory(factory);
 
         scanner.close();
         return output;
