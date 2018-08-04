@@ -74,6 +74,18 @@ public class Map {
         worker.goToMine();
       } else {
         // worker.goToFactory();
+        for (String resource: worker.resourcesHeld) {
+          //GOTO FACTORY
+          String factory = resource.toUpperCase();
+          Factory goToFactory = null;
+          for (Factory nextFact: this.factories){
+            if(nextFact.getLetter().equals(factory)){
+              goToFactory = nextFact;
+              break;
+            }
+          }
+          worker.goToFactory(goToFactory);
+        }
       }
     }
   }

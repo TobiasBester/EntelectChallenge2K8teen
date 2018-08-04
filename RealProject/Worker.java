@@ -84,4 +84,12 @@ public class Worker {
     return yLoc;
   }
 
+  public void goToFactory(Factory factory) {
+    theMap.increaseCost(theMap.getDistFromWorkerToFactory(this, factory));
+    this.xLoc = factory.getXloc();
+    this.yLoc = factory.getYloc();
+    this.currentLoad--;
+    this.resourcesHeld.remove(factory.getLetter().toUpperCase());
+  }
+
 }
