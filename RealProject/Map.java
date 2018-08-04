@@ -91,7 +91,19 @@ public class Map {
         }
       }
     }
+    System.out.println("Stopped Working");
+    printOutput();
+  }
 
+  public String printOutput() {
+    String outString = "";
+    for (Worker worker: workers) {
+      outString += worker.getStringType() + "|";
+      for (Integer index: workers.history) {
+        outString += index + ",";
+      }
+    }
+    return outString;
   }
   /*
   private void lookForResources() {

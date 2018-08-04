@@ -13,6 +13,7 @@ public class Worker {
   private int heuristic;
   public int currentLoad = 0;
   public ArrayList<String> resourcesHeld = new ArrayList<String>();
+  public ArrayList<Integer> history = new ArrayList<Integer>();
 
   Worker(int x, int y,int carryLoad,int type, Map theMap) {
     this.xLoc = x;
@@ -44,6 +45,7 @@ public class Worker {
 
     xLoc = currentMine.getXloc();
     yLoc = currentMine.getYloc();
+    this.history.add(currentMine.getIndex());
     currentLoad++;
     theMap.increaseCost(theMap.getDistFromWorkerToMine(this, currentMine));
     pickUpResource(currentMine.getLetter());
@@ -88,8 +90,19 @@ public class Worker {
     theMap.increaseCost(theMap.getDistFromWorkerToFactory(this, factory));
     this.xLoc = factory.getXloc();
     this.yLoc = factory.getYloc();
+    this.history.add(factory.getIndex());
     this.currentLoad--;
     this.resourcesHeld.remove(factory.getLetter().toLowerCase());
+  }
+
+  public String getStringType(){
+    if(this.type == 0) {
+      return "M";
+    } else if (this.type == 1){
+      return "E";
+    } else {
+      return "H";
+    }
   }
 
 }
