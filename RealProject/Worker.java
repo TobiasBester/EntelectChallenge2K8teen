@@ -10,7 +10,7 @@ public class Worker {
   public Mine currentMine = null;
   private int heuristic;
   public int currentLoad = 0;
-
+  public ArrayList<String> resourcesHeld = new ArrayList<String>();
 
   Worker(int x, int y,int carryLoad,int type, Map theMap) {
     this.xLoc = x;
@@ -31,6 +31,10 @@ public class Worker {
   public Boolean hasSpace()
   {
    return carryLoad > currentLoad;
+  }
+
+  public void pickUpResource(String letter) {
+    resourcesHeld.add(letter);
   }
 
 /*
