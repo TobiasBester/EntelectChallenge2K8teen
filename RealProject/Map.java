@@ -83,7 +83,7 @@ public class Map {
               break;
             }
           }
-          //worker.goToFactory
+          worker.goToFactory(goToFactory);
         }
       }
     }
