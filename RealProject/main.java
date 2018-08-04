@@ -11,13 +11,14 @@ public class main {
       Map theMap = null;
 
       try {
-          theMap = FileParser.read("./maps/map_5.input");
+          theMap = FileParser.read("./maps/map_1.input");
       } catch (FileNotFoundException ex) {
         System.out.println(ex);
       }
 
       // System.out.println("Map read from file");
       theMap.startWorking();
+      System.out.println(theMap.moneyUsed);
 
       // theMap.printMap();
       // theMap.startWorkers();
