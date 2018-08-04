@@ -1,16 +1,16 @@
-public class Depot {
+public class Factory {
 
   private int xLoc = 0;
   private int yLoc = 0;
   private Map theMap;
-  private Character letter;
+  private String letter;
   public boolean receivedResource = false;
   private Mine matchingMine = null;
 
-  Depot(Map theMap, int xLoc, int yLoc, Character letter) {
+  Factory(Map theMap, int xLoc, int yLoc, String letter) {
     // System.out.println("Found a depot at " + xLoc + "," + yLoc);
     this.theMap = theMap;
-    this.letter = Character.toUpperCase(letter);
+    this.letter = String.toUpperCase(letter);
     this.xLoc = xLoc;
     this.yLoc = yLoc;
   }
@@ -27,7 +27,7 @@ public class Depot {
     return yLoc;
   }
 
-  public Character getLetter() {
+  public String getLetter() {
     return letter;
   }
 
