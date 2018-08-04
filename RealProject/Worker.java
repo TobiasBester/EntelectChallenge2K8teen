@@ -53,15 +53,25 @@ public class Worker {
 
     Mine currentMine = theMap.mines.get(0);
 
-    double currShortest = 1000000000;
+    /* double currShortest = 1000000000;
     for (Mine mine: theMap.mines) {
       double dist = theMap.getDistFromWorkerToMine(this, mine);
       if (dist < currShortest) {
         currShortest = dist;
         currentMine = mine;
       }
-    }
+    } */
 
+    xLoc = currentMine.getXloc();
+    yLoc = currentMine.getYloc();
+    this.history.add(currentMine.getIndex());
+    currentLoad++;
+    theMap.increaseCost(theMap.getDistFromWorkerToMine(this, currentMine));
+    pickUpResource(currentMine.getLetter());
+    currentMine.removeResources();
+  };
+
+  public void goToMine(Mine currentMine) {
     xLoc = currentMine.getXloc();
     yLoc = currentMine.getYloc();
     this.history.add(currentMine.getIndex());

@@ -70,7 +70,59 @@ public class Map {
   public void startWorking() {
     // System.out.println("Started Working");
     while (mines.size() > 0) {
+
+      double currShortest = 100000000;
+      Worker currBestWorker = workers.get(0);
+      boolean mineIsBest = false;
+      Mine currentMine = mines.get(0);
+      Factory currentFactory = factories.get(0);
+
       for (Worker worker: workers) {
+
+        if (worker.hasSpace()) {
+          for (Mine mine: mines) {
+            double dist = getDistFromWorkerToMine(worker, mine);
+            if (dist < currShortest) {
+              currShortest = dist;
+              currentMine = mine;
+              mineIsBest = true;
+              currBestWorker = worker;
+            }
+          }
+        } else {
+          for (Factory factory: factories) {
+            double dist = getDistFromWorkerToFactory(worker, factory);
+            if (dist < currShortest) {
+              currShortest = dist;
+              currentFactory = factory;
+              mineIsBest = false;
+              currBestWorker = worker;
+            }
+          }
+        }
+
+      }
+
+      if (mineIsBest) {
+        currBestWorker.goToMine(currentMine);
+      } else {
+        for (String resource: currBestWorker.resourcesHeld) {
+          // System.out.println("Worker " + worker.getIndex() + " is heading to a factory");
+          //GOTO FACTORY
+          String factory = resource;
+          Factory goToFactory = null;
+          for (Factory nextFact: this.factories){
+            if(nextFact.getLetter().equals(factory)){
+              goToFactory = nextFact;
+              break;
+            }
+          }
+          // System.out.println("Going to factory: " + goToFactory.getIndex());
+          currBestWorker.goToFactory(goToFactory);
+        }
+      }
+
+      /*
         if (worker.hasSpace()) {
           // System.out.println("Worker " + worker.getIndex() + " is heading to a mine");
           worker.goToMine();
@@ -90,8 +142,7 @@ public class Map {
             // System.out.println("Going to factory: " + goToFactory.getIndex());
             worker.goToFactory(goToFactory);
           }
-        }
-      }
+        }*/
     }
     // System.out.println("Stopped Working");
     System.out.print(printOutput());
@@ -109,7 +160,7 @@ public class Map {
     }
     return outString;
   }
-  
+
   /*
   private void lookForResources() {
     System.out.println("Looking for mines and depots");
