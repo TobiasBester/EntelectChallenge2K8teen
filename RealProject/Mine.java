@@ -38,4 +38,11 @@ public class Mine {
     return yLoc;
   }
 
+  public void removeResources() {
+    numResources--;
+    if (numResources == 0) {
+      theMap.mines.remove(this);
+    }
+  }
+
 }

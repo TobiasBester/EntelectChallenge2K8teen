@@ -38,19 +38,19 @@ public class Map {
     // System.out.println("Is the thing a mine? " + shortestDist[2]);
     // System.out.println("The closest thing is: " + shortestDist[1]);
   }
-   
+
   public Boolean validMove(double numCost){
    double tmp =0;
    tmp = moneyUsed;
    Boolean flag = true;
-   
+
    if((tmp + numCost)> budget)
    {
       return false;
    }
    else
       return true;
-   
+
   }
   public void addMine(Mine mine) {
     mines.add(mine);
@@ -83,9 +83,9 @@ public class Map {
     System.out.println("Started Working");
     for (Worker worker: workers) {
       if (worker.hasSpace()) {
-        worker.goToMine();
+        // worker.goToMine();
       } else {
-        worker.goToFactory();
+        // worker.goToFactory();
       }
     }
   }
