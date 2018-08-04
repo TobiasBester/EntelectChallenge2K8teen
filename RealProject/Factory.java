@@ -11,7 +11,7 @@ public class Factory {
   Factory(int index, String letter ,int xLoc, int yLoc, Map theMap) {
     // System.out.println("Found a depot at " + xLoc + "," + yLoc);
     this.theMap = theMap;
-    this.letter = String.toUpperCase(letter);
+    this.letter = letter.toUpperCase();
     this.xLoc = xLoc;
     this.yLoc = yLoc;
     this.index = index;
