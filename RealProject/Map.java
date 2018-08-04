@@ -75,7 +75,7 @@ public class Map {
         }
       }
     }
-  }
+  } */
 
  //  private void matchMinesWithDepots() {
 //     System.out.println("Matching Mines with Depots");
@@ -89,11 +89,12 @@ public class Map {
 //     }
 //   }
 
+  /*
   public void startWorkers() {
     for (int i = 0; i < worker_count; i++ ) {
       workers.get(i).StartWorking();
     }
-  }
+  } */
 
   // public Object[] getShortestDist() {
 //     double closestDist = 100000.0;
@@ -127,7 +128,7 @@ public class Map {
 //     result[1] = closestThing;
 //     result[2] = thingIsMine;
 //     return result;
-//   }
+//   } */
 
   public double getDistFromWorkerToMine(Worker point1, Mine point2) {
     double result = 0.0;
@@ -148,6 +149,6 @@ public class Map {
     result = Math.sqrt( Math.pow( y2 - y1 , 2 )  - Math.pow( x2 - x1 , 2 )  );
     // System.out.println("Distance: " + result);
     return result;
-  }*/
+  }
 
 }
