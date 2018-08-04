@@ -7,16 +7,16 @@ public class main {
   static int worker_count;
 
   public static void main(String[] args) {
-      System.out.println("Hello there");
+      // System.out.println("Hello there");
       Map theMap = null;
 
       try {
-          theMap = FileParser.read("./maps/map_1.input");
+          theMap = FileParser.read("./maps/map_5.input");
       } catch (FileNotFoundException ex) {
         System.out.println(ex);
       }
 
-      System.out.println("Map read from file");
+      // System.out.println("Map read from file");
       theMap.startWorking();
 
       // theMap.printMap();

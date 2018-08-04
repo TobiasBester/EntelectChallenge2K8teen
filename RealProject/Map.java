@@ -49,7 +49,7 @@ public class Map {
 
   private void createWorkers() {
     int index = 0;
-    System.out.println("Creating Workers");
+    // System.out.println("Creating Workers");
     for (int i = 0; i < miner_count; i++) {
       Worker newMiner = new Worker(0, 0, 1, 0, index++, this);
       workers.add(newMiner);
@@ -68,15 +68,15 @@ public class Map {
   }
 
   public void startWorking() {
-    System.out.println("Started Working");
+    // System.out.println("Started Working");
     while (mines.size() > 0) {
       for (Worker worker: workers) {
         if (worker.hasSpace()) {
-          System.out.println("Worker " + worker.getIndex() + " is heading to a mine");
+          // System.out.println("Worker " + worker.getIndex() + " is heading to a mine");
           worker.goToMine();
         } else {
           for (String resource: worker.resourcesHeld) {
-            System.out.println("Worker " + worker.getIndex() + " is heading to a factory");
+            // System.out.println("Worker " + worker.getIndex() + " is heading to a factory");
             //GOTO FACTORY
             String factory = resource;
             Factory goToFactory = null;
@@ -86,13 +86,13 @@ public class Map {
                 break;
               }
             }
-            System.out.println("Going to factory: " + goToFactory.getIndex());
+            // System.out.println("Going to factory: " + goToFactory.getIndex());
             worker.goToFactory(goToFactory);
           }
         }
       }
     }
-    System.out.println("Stopped Working");
+    // System.out.println("Stopped Working");
     System.out.print(printOutput());
   }
 
