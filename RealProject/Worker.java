@@ -10,7 +10,7 @@ public class Worker {
   public Mine currentMine = null;
   private int heuristic;
 
-  Worker(int x, int y,int carryLoad,int type Map theMap) {
+  Worker(int x, int y,int carryLoad,int type, Map theMap) {
     this.xLoc = x;
     this.yLoc = y;
     this.theMap = theMap;
