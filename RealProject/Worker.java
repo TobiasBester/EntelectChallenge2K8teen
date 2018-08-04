@@ -10,6 +10,7 @@ public class Worker {
   public Mine currentMine = null;
   private int heuristic;
   public int currentLoad = 0;
+  
 
   Worker(int x, int y,int carryLoad,int type, Map theMap) {
     this.xLoc = x;
@@ -17,6 +18,19 @@ public class Worker {
     this.theMap = theMap;
     this.carryLoad = carryLoad;
     this.type = type;
+  }
+  
+  public int getType(){
+   return type;
+  }
+  
+  public int getCarryLoad(){
+   return carryLoad;
+  }
+  
+  public Boolean hasSpace()
+  {
+   return carryLoad > currenLoad;
   }
 
 /*
