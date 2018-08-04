@@ -75,6 +75,7 @@ public class Map {
           // System.out.println("Worker " + worker.getIndex() + " is heading to a mine");
           worker.goToMine();
         } else {
+
           for (String resource: worker.resourcesHeld) {
             // System.out.println("Worker " + worker.getIndex() + " is heading to a factory");
             //GOTO FACTORY
@@ -108,6 +109,7 @@ public class Map {
     }
     return outString;
   }
+  
   /*
   private void lookForResources() {
     System.out.println("Looking for mines and depots");
