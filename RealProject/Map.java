@@ -136,7 +136,7 @@ public class Map {
     int x2 = point2.getXloc();
     int y1 = point1.getYloc();
     int y2 = point2.getYloc();
-    result = Math.sqrt( Math.pow( y2 - y1 , 2 ) + Math.pow( x2 - x1 , 2 )  );
+    result = Math.abs(y2 - y1)  + Math.abs(x2 - x1);
     return result;
   }
 
@@ -146,7 +146,7 @@ public class Map {
     int x2 = point2.getXloc();
     int y1 = point1.getYloc();
     int y2 = point2.getYloc();
-    result = Math.sqrt( Math.pow( y2 - y1 , 2 )  - Math.pow( x2 - x1 , 2 )  );
+    result = Math.abs(y2 - y1) + Math.abs(x2 - x1);
     // System.out.println("Distance: " + result);
     return result;
   }
