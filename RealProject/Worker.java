@@ -2,16 +2,20 @@ public class Worker {
 
   private int xLoc = 0;
   private int yLoc = 0;
+  private int carryLoad = 0;
+  private int type = 0;
   public Boolean hasResource = false;
   public Boolean hasDeposited = false;
   private Map theMap;
   public Mine currentMine = null;
   private int heuristic;
 
-  Worker(int x, int y, Map theMap) {
+  Worker(int x, int y,int carryLoad,int type Map theMap) {
     this.xLoc = x;
     this.yLoc = y;
     this.theMap = theMap;
+    this.carryLoad = carryLoad;
+    this.type = type;
   }
 
   public void StartWorking() {
