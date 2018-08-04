@@ -71,23 +71,23 @@ public class Map {
         }
         if (Character.isLowerCase(theMap[i][j])) {
           Depot newDepot = new Depot(this, i, j, theMap[i][j]);
-          depots.add(newDepot);
+          //depots.add(newDepot);
         }
       }
     }
   }
 
-  private void matchMinesWithDepots() {
-    System.out.println("Matching Mines with Depots");
-    for (Mine mine: mines) {
-      for (Depot depot: depots) {
-        if ( mine.getLetter().equals(depot.getLetter()) ) {
-          mine.setDepot(depot);
-          depot.setMine(mine);
-        }
-      }
-    }
-  }
+ //  private void matchMinesWithDepots() {
+//     System.out.println("Matching Mines with Depots");
+//     for (Mine mine: mines) {
+//       for (Depot depot: depots) {
+//         if ( mine.getLetter().equals(depot.getLetter()) ) {
+//           mine.setDepot(depot);
+//           depot.setMine(mine);
+//         }
+//       }
+//     }
+//   }
 
   public void startWorkers() {
     for (int i = 0; i < worker_count; i++ ) {
@@ -95,39 +95,39 @@ public class Map {
     }
   }
 
-  public Object[] getShortestDist() {
-    double closestDist = 100000.0;
-    Object closestThing = null;
-    boolean thingIsMine = true;
-    Worker currentWorker = null;
-    Object[] result = new Object[3];
-    for (Worker worker: workers) {
-      for (Mine mine: mines) {
-        double dist = getDistFromWorkerToMine(worker, mine);
-        if (dist < closestDist) {
-          thingIsMine = true;
-          closestDist = dist;
-          closestThing = mine;
-          currentWorker = worker;
-        }
-      }
-      if (worker.hasResource) {
-        for (Depot depot: depots) {
-          double dist = getDistFromWorkerToDepot(worker, depot);
-          if (dist < closestDist) {
-            thingIsMine = false;
-            closestDist = dist;
-            closestThing = depot;
-            currentWorker = worker;
-          }
-        }
-      }
-    }
-    result[0] = currentWorker;
-    result[1] = closestThing;
-    result[2] = thingIsMine;
-    return result;
-  }
+  // public Object[] getShortestDist() {
+//     double closestDist = 100000.0;
+//     Object closestThing = null;
+//     boolean thingIsMine = true;
+//     Worker currentWorker = null;
+//     Object[] result = new Object[3];
+//     for (Worker worker: workers) {
+//       for (Mine mine: mines) {
+//         double dist = getDistFromWorkerToMine(worker, mine);
+//         if (dist < closestDist) {
+//           thingIsMine = true;
+//           closestDist = dist;
+//           closestThing = mine;
+//           currentWorker = worker;
+//         }
+//       }
+//       if (worker.hasResource) {
+//         for (Depot depot: depots) {
+//           double dist = getDistFromWorkerToDepot(worker, depot);
+//           if (dist < closestDist) {
+//             thingIsMine = false;
+//             closestDist = dist;
+//             closestThing = depot;
+//             currentWorker = worker;
+//           }
+//         }
+//       }
+//     }
+//     result[0] = currentWorker;
+//     result[1] = closestThing;
+//     result[2] = thingIsMine;
+//     return result;
+//   }
 
   public double getDistFromWorkerToMine(Worker point1, Mine point2) {
     double result = 0.0;
