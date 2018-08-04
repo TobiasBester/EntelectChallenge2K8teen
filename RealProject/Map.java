@@ -26,13 +26,13 @@ public class Map {
     this.numFactories = numFacs;
     this.budget = budget;
 
-    createWorkers();
-    lookForResources();
-    matchMinesWithDepots();
-    Object[] shortestDist = getShortestDist();
-    System.out.println("The closest worker is: " + shortestDist[0]);
-    System.out.println("Is the thing a mine? " + shortestDist[2]);
-    System.out.println("The closest thing is: " + shortestDist[1]);
+    // createWorkers();
+    // lookForResources();
+    // matchMinesWithDepots();
+    // Object[] shortestDist = getShortestDist();
+    // System.out.println("The closest worker is: " + shortestDist[0]);
+    // System.out.println("Is the thing a mine? " + shortestDist[2]);
+    // System.out.println("The closest thing is: " + shortestDist[1]);
   }
 
   private void createWorkers() {
